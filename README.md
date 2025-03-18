@@ -1,44 +1,69 @@
-# آنالیزگر کانال تلگرام
 
-این برنامه برای آنالیز داده‌های کانال‌های تلگرام طراحی شده است. با استفاده از API تلگرام، اطلاعات مختلفی را از کانال‌ها جمع‌آوری کرده و تحلیل‌های آماری مفیدی را ارائه می‌دهد.
+# Telegram Channel Analyzer
 
-## قابلیت‌ها
+This program is designed to analyze Telegram channel data. Using the Telegram API, it collects various information from channels and provides useful statistical analyses.
 
-- استخراج اطلاعات اولیه کانال (تاریخ ایجاد، تعداد اعضا، توضیحات)
-- تحلیل پست‌ها (تعداد کل، تاریخ اولین و آخرین پست، میانگین پست روزانه)
-- بررسی الگوهای زمانی (توزیع پست‌ها بر اساس ساعت و روز هفته)
-- تولید نمودارهای تحلیلی (خلاصه کانال، نمودار میله‌ای توزیع پست‌ها، سری زمانی فعالیت، نقشه حرارتی)
-- مقایسه بین کانال‌ها (در صورت آنالیز چند کانال)
+## Features
 
-## پیش‌نیازها
+- Extract basic channel information (creation date, member count, description)
+- Analyze posts (total count, first and last post dates, average daily posts)
+- Examine time patterns (post distribution by hour and day of week)
+- Generate analytical charts (channel summary, post distribution bar charts, activity timeline, heatmaps)
+- Compare between channels (when analyzing multiple channels)
 
-برای استفاده از این برنامه به موارد زیر نیاز دارید:
+## Prerequisites
 
-1. نصب کتابخانه‌های مورد نیاز:
+To use this program, you'll need:
 
+1. Install the required libraries:
+   ```
+   pip install -r requirements.txt
+   ```
 
-pip3 install -r requirements.txt
+2. Create an account on [Telegram API](https://my.telegram.org/apps) to obtain API ID and API Hash.
 
-2. ایجاد حساب در [تلگرام API](https://my.telegram.org/apps) برای دریافت API ID و API Hash.
+3. Replace the `API_ID`, `API_HASH`, and `PHONE_NUMBER` variables in the code with your information.
 
-3. جایگزین کردن متغیرهای `API_ID`، `API_HASH` و `PHONE_NUMBER` در کد با اطلاعات خودتان.
+## How to Use
 
-## نحوه استفاده
+1. Run the program:
+   ```
+   python telegram_analyzer.py
+   ```
+   
+2. Enter the usernames of the channels you want to analyze (separated by commas).
 
-1. برنامه را اجرا کنید:
-2. python3 channel.py
-3. 2. نام کاربری کانال‌هایی که می‌خواهید آنالیز کنید را وارد کنید (با کاما جدا شده).
+3. Specify the number of recent messages to analyze.
 
-3. تعداد پیام‌های اخیر برای آنالیز را مشخص کنید.
+4. The program will automatically save all analyses and charts in a folder named `telegram_analysis_[date]_[time]`.
 
-4. برنامه به طور خودکار همه تحلیل‌ها و نمودارها را در یک پوشه با نام `telegram_analysis_[تاریخ]_[زمان]` ذخیره می‌کند.
+## Output Examples
 
-## نمونه خروجی
+The program generates various charts:
 
-برنامه نمودارهای متنوعی را تولید می‌کند:
+- Channel information summary
+- Post distribution by hour of day
+- Post distribution by day of week
+- Post publishing trend over time
+- Hour-day heatmap to identify posting patterns
 
-- خلاصه اطلاعات کانال
-- توزیع پست‌ها بر اساس ساعت روز
-- توزیع پست‌ها بر اساس روز هفته
-- روند انتشار پست در طول زمان
-- نقشه حرارتی ساعت-روز برای شناسایی الگوهای ارسال پست
+## Technical Features
+
+- Uses the Telethon library to connect to the Telegram API
+- Data analysis with Pandas and NumPy
+- Visualization with Matplotlib and Seaborn
+- Support for different languages and Unicode using the DejaVu Sans font
+
+## Common Issues and Solutions
+
+- If you encounter API access errors, ensure your phone number and API credentials are verified in Telegram.
+- To improve performance when retrieving channels with many posts, reduce the message retrieval limit.
+- If you see warnings related to Unicode character display, use the default DejaVu Sans font.
+
+## Contributing
+
+Your suggestions and contributions to improve this project are welcome. Please create an Issue first or submit a Pull Request to contribute.
+
+## License
+
+This project is released under the MIT License. See the LICENSE file for more information.
