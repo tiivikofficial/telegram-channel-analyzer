@@ -28,7 +28,7 @@ To use this program, you'll need:
 
 1. Run the program:
    ```
-   python telegram_analyzer.py
+   python channel.py
    ```
    
 2. Enter the usernames of the channels you want to analyze (separated by commas).
